@@ -57,6 +57,7 @@ new Siema({
   threshold: 20,
   loop: false,
   rtl: false,
+  flex: false,
   onInit: () => {},
   onChange: () => {},
 });
@@ -91,6 +92,9 @@ Loop the slides around [(example)](http://codepen.io/pawelgrzybek/pen/zwOrKN).
 
 **`rtl`** (boolean)  
 Enables layout for languages written from right to left (like Hebrew or Arabic) [(example)](https://codepen.io/pawelgrzybek/pen/XZNEgd).
+
+**``** (boolean)
+Enables flex-based layout
 
 **`onInit`** (function)  
 Runs immediately after initialization [(example)](http://codepen.io/pawelgrzybek/pen/BRBjpE).

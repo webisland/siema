@@ -56,6 +56,7 @@ export default class Siema {
       threshold: 20,
       loop: false,
       rtl: false,
+      flex: false,
       onInit: () => {},
       onChange: () => {},
     };
@@ -169,6 +170,10 @@ export default class Siema {
       this.selector.style.cursor = '-webkit-grab';
     }
 
+    if (this.config.flex) {
+      this.sliderFrame.style.display = 'flex';
+    }
+
     // Create a document fragment to put slides into it
     const docFragment = document.createDocumentFragment();
 
@@ -203,8 +208,10 @@ export default class Siema {
 
   buildSliderFrameItem(elm) {
     const elementContainer = document.createElement('div');
-    elementContainer.style.cssFloat = this.config.rtl ? 'right' : 'left';
-    elementContainer.style.float = this.config.rtl ? 'right' : 'left';
+    if (!this.config.flex) {
+      elementContainer.style.cssFloat = this.config.rtl ? 'right' : 'left';
+      elementContainer.style.float = this.config.rtl ? 'right' : 'left';
+    }
     elementContainer.style.width = `${this.config.loop ? 100 / (this.innerElements.length + (this.perPage * 2)) : 100 / (this.innerElements.length)}%`;
     elementContainer.appendChild(elm);
     return elementContainer;
